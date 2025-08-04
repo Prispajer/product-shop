@@ -1,9 +1,17 @@
+@use "../../../styles/abstracts/variables" as v;
+@use "../../../styles/abstracts/mixins" as m;
+
 .logo {
-  display: flex;
-  align-items: center;
+  @include m.flex-center;
   gap: 20px;
 
   h1 {
-    font-size: 24px;
+    font-size: v.$font-size-logo;
+    font-family: v.$font-family-header;
+    cursor: default;
+
+    @include m.media(sm) {
+      font-size: 20px;
+    }
   }
 }

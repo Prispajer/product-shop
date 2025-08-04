@@ -1,0 +1,19 @@
+@use "../../../styles/abstracts/variables" as v;
+@use "../../../styles/abstracts/mixins" as m;
+
+.list {
+  flex-direction: column;
+  @include m.container(v.$max-width-list);
+  padding: 30px 0 0 0;
+
+  h2 {
+    padding: 20px 0;
+    cursor: default;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}

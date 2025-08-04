@@ -1,9 +1,38 @@
-import Layout from "./layout/Layout";
+import AppLayout from "./layout/AppLayout";
+import ProductListView from "./features/products/components/ProductListView/ProductListView";
+import { useSearch } from "./hooks/useSearch";
+import useDebounce from "./hooks/useDebounce";
 
 export default function App() {
+  const { searchText } = useSearch();
+  const searchQuery = useDebounce(searchText, 1000);
+  const hasSearchQuery = searchQuery.trim().length > 0;
+
   return (
-    <>
-      <Layout />
-    </>
+    <AppLayout>
+      {hasSearchQuery ? (
+        <ProductListView
+          limit={0}
+          skip={0}
+          title="Search Results"
+          searchQuery={searchQuery}
+        />
+      ) : (
+        <>
+          <ProductListView
+            limit={6}
+            skip={0}
+            title="Featured Products"
+            searchQuery=""
+          />
+          <ProductListView
+            limit={6}
+            skip={6}
+            title="New Arrivals"
+            searchQuery=""
+          />
+        </>
+      )}
+    </AppLayout>
   );
 }

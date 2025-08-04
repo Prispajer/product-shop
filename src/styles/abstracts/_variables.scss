@@ -1,19 +1,37 @@
-// Kolory headera
 $header-bg-color: #ffffff;
 $header-text-color: #170e0f;
-
-// Kolory search inputa
 $search-input-bg-color: #f2e8e7;
 $search-input-text-color: #a8878a;
-
-// Kolor główny (np. linki, buttony)
 $primary-color: #3498db;
+$card-bg-color: #fff;
+$card-text-color: #333;
 
-// Fonty
 $font-family-base: "Inter", sans-serif;
 $font-family-header: "Montserrat", sans-serif;
 
-// Rozmiary fontów
 $font-size-base: 1rem;
 $font-size-header: 1.25rem;
 $font-size-search-input: 1rem;
+$font-size-card-title: 1.1rem;
+$font-size-logo: 22px;
+
+$radius-card: 12px;
+$radius-input: 14px;
+
+$padding-card: 1rem;
+$padding-header: 1rem 2rem;
+$padding-search-input: 20px 20px 20px 36px;
+$margin-img-bottom: 0.5rem;
+$margin-main-bottom: 8rem;
+
+$max-width-header: 1440px;
+$max-width-list: 1100px;
+$max-width-search: 220px;
+
+$breakpoints: (
+  xs: 360px,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+);

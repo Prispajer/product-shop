@@ -1,19 +1,17 @@
-@use "../../../styles//abstracts/variables" as v;
+@use "../../../styles/abstracts/variables" as v;
+@use "../../../styles/abstracts/mixins" as m;
 
 .header {
   width: 100%;
   display: flex;
   align-items: center;
   background-color: v.$header-bg-color;
-  padding: 1rem 2rem;
+  padding: v.$padding-header;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   &__inner {
-    max-width: 1600px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include m.container(v.$max-width-header);
+    @include m.flex-between;
+    gap: 20px;
   }
 }

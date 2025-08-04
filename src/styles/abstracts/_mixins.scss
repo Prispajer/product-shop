@@ -1,0 +1,36 @@
+@use "../../styles/abstracts/variables" as v;
+@use "sass:map";
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin media($size) {
+  $value: map.get(v.$breakpoints, $size);
+
+  @if $value {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @error "Nieznany breakpoint: #{$size}";
+  }
+}
+
+@mixin transition($props...) {
+  transition: $props;
+}
+
+@mixin container($max-width) {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+}

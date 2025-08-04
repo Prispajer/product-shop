@@ -1,0 +1,9 @@
+@use "../../../styles/abstracts/variables" as v;
+
+.message {
+  text-align: center;
+  font-size: v.$font-size-base;
+  color: v.$search-input-text-color;
+  padding: 2rem;
+  font-family: v.$font-family-base;
+}

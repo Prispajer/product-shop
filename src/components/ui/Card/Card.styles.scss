@@ -1,0 +1,40 @@
+@use "../../../styles/abstracts/variables" as v;
+@use "../../../styles/abstracts/mixins" as m;
+
+.card {
+  background-color: v.$card-bg-color;
+  padding: 0 v.$padding-card v.$padding-card 0;
+  cursor: pointer;
+  @include m.transition(transform 0.2s ease, box-shadow 0.2s ease);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  img {
+    max-width: 100%;
+    min-width: 200px;
+    min-height: 150px;
+    height: auto;
+    border-radius: v.$radius-card;
+    margin-bottom: v.$margin-img-bottom;
+  }
+
+  h3 {
+    font-size: v.$font-size-card-title;
+    color: v.$card-text-color;
+  }
+
+  p {
+    margin: 0.2rem 0;
+    font-size: v.$font-size-base;
+    color: v.$search-input-text-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @include m.media(xs) {
+    padding: 0;
+  }
+}
