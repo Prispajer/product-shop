@@ -1,14 +1,8 @@
 import "./Card.styles.scss";
 
-export default function Card({
-  title,
-  price,
-  image,
-}: {
-  title: string;
-  price: number;
-  image: string;
-}) {
+import { type CardProps } from "./Card.types";
+
+export default function Card({ title, price, image }: CardProps) {
   return (
     <div className="card">
       {image && <img src={image} alt={title} loading="lazy" />}

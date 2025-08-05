@@ -1,6 +1,7 @@
-import React from "react";
-import { SearchProvider } from "../context/SearchContext";
 import { QueryClientProvider } from "@tanstack/react-query";
+import React from "react";
+
+import { SearchProvider } from "../context/SearchContext";
 import { queryClient } from "../lib/query";
 
 export default function Providers({ children }: { children: React.ReactNode }) {

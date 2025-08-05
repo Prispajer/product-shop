@@ -1,7 +1,9 @@
-import logoSvg from "../../../assets/icons/logo.svg";
 import "./Logo.styles.scss";
 
-export default function Logo({ size = 24 }: { size?: number }) {
+import logoSvg from "../../../assets/icons/logo.svg";
+import { type LogoProps } from "./Logo.types";
+
+export default function Logo({ size = 24 }: LogoProps) {
   return (
     <div className="logo">
       <img src={logoSvg} width={size} height={size} alt="Logo" />

@@ -1,5 +1,5 @@
-@use "../styles/base/reset" as *;
-@use "../styles/abstracts/mixins" as m;
+@use "../../styles/base/reset" as *;
+@use "../../styles/abstracts/mixins" as m;
 
 main {
   @include m.flex-center;

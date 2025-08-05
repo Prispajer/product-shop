@@ -2,18 +2,14 @@ import List from "../../../../components/ui/List/List";
 import Message from "../../../../components/ui/Message/Message";
 import useProducts from "../../hooks/useProducts";
 import useSearchProducts from "../../hooks/useSearchProducts";
+import { type ProductListViewProps } from "./ProductListView.types";
 
 export default function ProductListView({
   title,
   limit,
   skip,
   searchQuery,
-}: {
-  title: string;
-  limit: number;
-  skip: number;
-  searchQuery: string;
-}) {
+}: ProductListViewProps) {
   const {
     products: searchedProducts,
     isLoading: isSearchLoading,

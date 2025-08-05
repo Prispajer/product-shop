@@ -1,7 +1,7 @@
-import AppLayout from "./layout/AppLayout";
 import ProductListView from "./features/products/components/ProductListView/ProductListView";
-import { useSearch } from "./hooks/useSearch";
 import useDebounce from "./hooks/useDebounce";
+import { useSearch } from "./hooks/useSearch";
+import AppLayout from "./layout/AppLayout/AppLayout";
 
 export default function App() {
   const { searchText } = useSearch();
