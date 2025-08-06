@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getProducts } from "../services/productsApi";
+import { fetchProducts } from "../services/productsApi";
 import type { Product } from "../types/Product";
 
 export default function useProducts(limit?: number, skip?: number) {
@@ -11,7 +11,7 @@ export default function useProducts(limit?: number, skip?: number) {
     error,
   } = useQuery<Product[]>({
     queryKey: ["products", limit, skip],
-    queryFn: () => getProducts(limit, skip),
+    queryFn: () => fetchProducts(limit, skip),
     placeholderData: [],
     staleTime: 5 * 60 * 1000,
     gcTime: 15 * 60 * 1000,

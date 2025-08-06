@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getProductsBySearch } from "../services/productsApi";
+import { fetchProductsBySearch } from "../services/productsApi";
 import type { Product } from "../types/Product";
 
 export default function useSearchProducts(query: string) {
@@ -11,7 +11,7 @@ export default function useSearchProducts(query: string) {
     error,
   } = useQuery<Product[]>({
     queryKey: ["search", { query }],
-    queryFn: () => getProductsBySearch(query),
+    queryFn: () => fetchProductsBySearch(query),
     enabled: query.length > 0,
     placeholderData: [],
     staleTime: 0,
