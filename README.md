@@ -1,29 +1,35 @@
-# 🛍️ Product Shop — modularny frontend sklepowy
+## 🛍️ Product Shop — modularna aplikacja frontendowa
 
-Aplikacja frontendowa typu **Product Shop** zbudowana w oparciu o **feature-first architecture**. Zawiera wyszukiwarkę produktów z debounce, widoki listy, integrację z API oraz modularną strukturę folderów ułatwiającą rozwój i utrzymanie.
+Projekt aplikacji sklepowej zbudowany w oparciu o **feature-based architecture**. Zawiera:
 
----
+- Wyszukiwarkę produktów z debounce i kontekstem globalnym.  
+- Widok produktów z podziałem na sekcje.  
+- Integrację z API przy użyciu `react-query`.  
+- Modularną strukturę folderów ułatwiającą skalowanie i utrzymanie kodu.  
+
+Kod oparty na **React + TypeScript + SCSS**, z naciskiem na czytelność, reużywalność komponentów i długoterminową skalowalność.
 
 ## 📁 Struktura folderów
 
 ```
 src/
 ├── assets/           // Statyczne zasoby (ikony, obrazy, fonty)
-├── components/ui/    // Reużywalne komponenty UI
-├── context/          // Globalny stan (np. SearchContext)
+├── components/ui/    // Reużywalne komponenty UI (np. Card, SearchInput, Logo)
+├── context/          // Globalny stan aplikacji (np. SearchContext)
 ├── features/
 │   └── products/
-│       ├── components/  // Widoki i komponenty związane z produktami
-│       ├── hooks/       // Hooki specyficzne dla produktów
-│       ├── services/    // API dla produktów
+│       ├── components/  // Komponenty widoku produktów (np. ProductListView)
+│       ├── hooks/       // Hooki specyficzne dla produktów (np. useProducts)
+│       ├── services/    // Logika komunikacji z API produktów
 │       └── types/       // Typy związane z produktami
-├── hooks/            // Globalne hooki (useDebounce, useSearch)
-├── layout/           // Wrapper layoutu aplikacji
-├── lib/              // Konfiguracje (axios, queryClient)
-├── providers/        // Providerzy projektu (np. QueryProvider)
-├── styles/           // SCSS: zmienne, mixiny, reset
-├── App.tsx           // Logika główna aplikacji
-└── main.tsx          // Punkt wejścia
+├── hooks/            // Globalne hooki (np. useDebounce, useSearch)
+├── layout/           // Główne komponenty layoutu aplikacji (np. AppLayout, Header)
+├── lib/              // Konfiguracje i narzędzia (np. axiosInstance, queryClient, fetchData)
+├── providers/        // Providerzy aplikacji (np. QueryProvider, SearchProvider)
+├── styles/           // SCSS: zmienne, mixiny, reset, globalne style
+├── types/            // Typy globalne aplikacji (np. Http, Request)
+├── App.tsx           // Główny komponent widoku aplikacji – kontroluje logikę renderowania sekcji na podstawie stanu wyszukiwania. Korzysta z hooków i opakowuje widoki w layout.
+└── main.tsx          // Punkt wejścia aplikacji – renderowanie do DOM
 ```
 
 ## ✨ Główne cechy

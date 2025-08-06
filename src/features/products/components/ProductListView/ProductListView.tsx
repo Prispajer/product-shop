@@ -10,32 +10,35 @@ export default function ProductListView({
   skip,
   searchQuery,
 }: ProductListViewProps) {
+  const hasSearchQuery = searchQuery.trim().length > 0;
+
   const {
     products: searchedProducts,
     isLoading: isSearchLoading,
     isError: isSearchError,
   } = useSearchProducts(searchQuery);
+
   const {
     products: allProducts,
     isLoading: isAllLoading,
     isError: isAllError,
   } = useProducts(limit, skip);
 
-  const hasSearchQuery = searchQuery.trim().length > 0;
+  const isLoading = hasSearchQuery ? isSearchLoading : isAllLoading;
+  const isError = hasSearchQuery ? isSearchError : isAllError;
+  const products = hasSearchQuery ? searchedProducts : allProducts;
 
-  if (hasSearchQuery) {
-    if (isSearchLoading) return <Message text="Loading search results..." />;
-    if (isSearchError) return <Message text="Error loading search results" />;
-    if (!searchedProducts || searchedProducts.length === 0)
-      return <Message text="No products found" />;
+  const loadingText = hasSearchQuery
+    ? "Loading search results..."
+    : "Loading products...";
+  const errorText = hasSearchQuery
+    ? "Error loading search results"
+    : "Error loading products";
 
-    return <List title={title} products={searchedProducts} />;
-  }
-
-  if (isAllLoading) return <Message text="Loading products..." />;
-  if (isAllError) return <Message text="Error loading products" />;
-  if (!allProducts || allProducts.length === 0)
+  if (isLoading) return <Message text={loadingText} />;
+  if (isError) return <Message text={errorText} />;
+  if (!products || products.length === 0)
     return <Message text="No products found" />;
 
-  return <List title={title} products={allProducts} />;
+  return <List title={title} products={products} />;
 }
